@@ -8,12 +8,12 @@ public class Tabungan extends Rekening {
         super(nomor, pemilik, saldo);
         this.bungaPersen = bungaPersen;
     }
-        //Menambahkan bunga tabungan
-        public int tambahBunga () {
-            int bunga = (int) (getSaldo() * bungaPersen / 100);
-            setor(bunga);
-            return bunga;
-        }
+    //Menambahkan bunga tabungan
+    public int tambahBunga () {
+        int bunga = (int) (getSaldo() * bungaPersen / 100);
+        setor(bunga);
+        return bunga;
+    }
     // Override cetakInfo
     @Override
     public void cetakInfo() {
