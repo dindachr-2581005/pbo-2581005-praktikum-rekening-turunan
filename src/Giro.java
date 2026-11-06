@@ -1,28 +1,38 @@
+
 public class Giro extends Rekening {
+
     private int batasOverdraft;
 
-    //Constructor
-    public Giro (String nomor, String pemilik, int saldo, int batasOverdraft) {
+    // Constructor
+    public Giro(String nomor, String pemilik,
+                int saldo, int batasOverdraft) {
 
         super(nomor, pemilik, saldo);
         this.batasOverdraft = batasOverdraft;
     }
-    //Override tarik
+
+    // Override method tarik
     @Override
     public boolean tarik(int jumlah) {
+
         if (jumlah <= 0 || saldo - jumlah < -batasOverdraft) {
             return false;
         }
+
         saldo -= jumlah;
         return true;
     }
-    //Override cetakInfo
+
+    // Override cetakInfo
     @Override
     public void cetakInfo() {
+
         super.cetakInfo();
+
         System.out.println("       Giro, batas overdraft "
                 + formatRupiah(batasOverdraft));
     }
+
     // Pengujian akses field private dari parent:
     // System.out.println(nomor);
     // Error: nomor has private access in Rekening
